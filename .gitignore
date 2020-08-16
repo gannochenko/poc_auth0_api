@@ -1,0 +1,7 @@
+node_modules/
+*.log
+*.tar.gz
+.idea/workspace.xml
+.idea/libraries
+build/*
+!build/
