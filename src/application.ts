@@ -54,13 +54,17 @@ import { controllers } from './controller';
         algorithms: ['RS256'],
     });
 
-    app.post('/timesheets/upload', checkJwt, (req, res) => {
-        const timesheet = req.body;
+    app.get('/secret/government/agents', checkJwt, (req, res) => {
+        console.log(req);
 
-        // Save the timesheet entry to the database...
-
-        //send the response
-        res.status(201).send(timesheet);
+        res.status(200).send({
+            data: {
+                agents: [
+                    { firstName: 'Jason', lastName: 'Bourne' },
+                    { firstName: 'James', lastName: 'Bond' },
+                ],
+            },
+        });
     });
 
     useControllers(app, controllers, async () => ({}));
